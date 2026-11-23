@@ -190,7 +190,7 @@ public final class EngineHostGamePlugin implements EnginePlugin {
         // SDLActivity.startNative() acquires SDL's HID device manager right after
         // setContext(); that constructor is what registers the JVM with SDL's
         // HIDAPI (HIDDeviceRegisterCallback). Without it SDL_JoystickInit reaches
-        // PLATFORM_hid_init with no JVM and dereferences null (Droidtop/tracker#483).
+        // PLATFORM_hid_init with no JVM and dereferences null (mytop-project/tracker#483).
         try {
             hid = HIDDeviceManager.acquire(activity);
         } catch (RuntimeException error) {
@@ -211,7 +211,7 @@ public final class EngineHostGamePlugin implements EnginePlugin {
         ((GameActivity) SDLActivity.mSingleton).setEnginehostGame(gameFile);
 
         // onCreate() tells SDL the screen's orientation once; SDLSurface only reports changes, so
-        // without this SDL starts at "unknown" (Droidtop/tracker#483, line patch 0005). The
+        // without this SDL starts at "unknown" (mytop-project/tracker#483, line patch 0005). The
         // clipboard handler onCreate() also made is now made on first use by the same patch.
         SDLActivity.reportCurrentOrientation();
 

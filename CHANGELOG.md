@@ -7,7 +7,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Security
 
-- Declares `"lockdown": true` (1.0.3, Droidtop/tracker#550): every launch of this core is
+- Declares `"lockdown": true` (1.0.3, mytop-project/tracker#550): every launch of this core is
   locked down, with files only through Enginehost's broker, no sockets and no exec. On the
   emulator conformance run its test game passed every check that ran under the forced
   lockdown (Enginehost run 40927896898) and under a learning run (40929951174).
@@ -24,18 +24,18 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 
-- Droidtop/tracker#483, the two `onCreate()` steps the plugin-api transport
+- mytop-project/tracker#483, the two `onCreate()` steps the plugin-api transport
   skipped (1.0.2): SDL's clipboard handler, which `clipboardHasText`,
   `clipboardGetText` and `clipboardSetText` dereferenced (so
   `love.system.getClipboardText` and `setClipboardText` crashed), is made on
   first use; and the screen's orientation is reported to SDL at start instead
   of staying "unknown" until the sensor moves. Line patch 0005.
-- Droidtop/tracker#483, crash on start with the joystick module on:
+- mytop-project/tracker#483, crash on start with the joystick module on:
   `EngineHostGamePlugin` now acquires SDL's `HIDDeviceManager` the way
   `SDLActivity.startNative()` does. Only that constructor registers the JVM
   with SDL's HIDAPI, so `SDL_JoystickInit` reached `PLATFORM_hid_init` with a
   null `JavaVM` and crashed.
-- Droidtop/tracker#483, abort with the joystick module off (`NoSuchMethodError`
+- mytop-project/tracker#483, abort with the joystick module off (`NoSuchMethodError`
   for `getImmersiveMode`): LOVE's native side calls `GameActivity` instance
   methods on SDL's context, which is the host Activity under the plugin-api
   transport. `love/src/common/android.cpp` now asks

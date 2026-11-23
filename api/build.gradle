@@ -1,7 +1,7 @@
 // Enginehost's plugin API, compiled against and never shipped: at run time the host supplies these
 // classes. The source is Enginehost's own plugin-api/, checked out into build/enginehost by the
-// Droidtop/enginehost .github/actions/plugin-api action at the commit the workflow pins
-// (Droidtop/tracker#768: this repository used to commit a copy, which had fallen behind).
+// mytop-project/enginehost .github/actions/plugin-api action at the commit the workflow pins
+// (mytop-project/tracker#768: this repository used to commit a copy, which had fallen behind).
 apply plugin: 'java-library'
 
 def androidSdk = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
@@ -11,7 +11,7 @@ if (androidSdk == null) {
 
 def enginehostApi = rootProject.file('build/enginehost/plugin-api/src/main/java')
 if (!enginehostApi.isDirectory()) {
-    throw new GradleException("Enginehost's plugin API is not checked out: clone Droidtop/enginehost into " +
+    throw new GradleException("Enginehost's plugin API is not checked out: clone mytop-project/enginehost into " +
         "build/enginehost at the commit .github/workflows/android-plugin.yml pins its plugin-api action to")
 }
 

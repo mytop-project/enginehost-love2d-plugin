@@ -6,7 +6,7 @@ and no per-game APK.
 
 ## Branches
 
-A core has only these branches (Droidtop/tracker#324, the owner, 2026-11-05):
+A core has only these branches (mytop-project/tracker#324, the owner, 2026-11-05):
 
 - `upstream-sync` follows upstream LÖVE for Android (`love2d/love-android`). It is updated from
   upstream's `main` by hand (there is no sync workflow); nothing of ours is developed there.
@@ -82,7 +82,7 @@ names, with its bypass on by default. With bypass off, the wrapper reports every
 pad event to LÖVE as the button or axis it is bound to.
 
 Upstream: https://github.com/love2d/love-android, https://github.com/love2d/love.
-Enginehost: https://github.com/Droidtop/enginehost.
+Enginehost: https://github.com/mytop-project/enginehost.
 
 ## Links the game opens are offered by Enginehost (2026-10-24)
 
